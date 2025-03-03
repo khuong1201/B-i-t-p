@@ -1,0 +1,96 @@
+Có thể biết được ngôn ngữ lập trình mới, và khả năng cao sẽ đi theo lập trình thiết bị di động
+Theo em trong tương lai gần lập trình di động có phát triển vì nhu cầu sử dụng điện thoại của con người ngày càng cao nên sẽ phát triển mạnh mẽ như xu hướng khác
+code ui:
+main.dart:
+import 'package:flutter/material.dart';
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Profile Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: const MyHomePage(title: 'Profile Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(left: 15),
+            padding: const EdgeInsets.all(6),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black, width: 3),
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.white,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+          const Spacer(),
+          Container(
+            margin: const EdgeInsets.only(right: 15),
+            padding: const EdgeInsets.all(6),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black, width: 3),
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.white,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.edit, color: Colors.black),
+              onPressed: () {
+                // Hành động khi nhấn nút sửa
+              },
+            ),
+          ),
+        ],
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircleAvatar(
+              radius: 80,
+              backgroundColor: Colors.blue,
+              backgroundImage: AssetImage('assets/images/Mykind.jpg'),
+            ),
+            const SizedBox(height: 80),
+            Text(
+              'Nguyen Duy Khuong',
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'TP HCM, Viet Nam',
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+} //end main.dart
+
